@@ -10,5 +10,8 @@
 "repository": {
    "type": "git",
    "url": "https://github.com/Mithgol/fidoedit.git"
+},
+"scripts": {
+   "test": "jshint --verbose fidoedit.js editcore.js"
 }
 }
