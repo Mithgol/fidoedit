@@ -20,6 +20,8 @@ You may visit https://github.com/Mithgol/fidoedit#readme occasionally to read t
 
 ## Testing FidoEdit
 
+[![(build testing status)](https://img.shields.io/travis/Mithgol/fidoedit/master.svg?style=plastic)](https://travis-ci.org/Mithgol/fidoedit)
+
 It is necessary to install [JSHint](http://jshint.com/) for testing.
 
 * You may install JSHint globally (`npm install jshint -g`) or locally (`npm install jshint` in the directory of FidoEdit).
