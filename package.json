@@ -11,6 +11,9 @@
    "type": "git",
    "url": "https://github.com/Mithgol/fidoedit.git"
 },
+"dependencies": {
+   "nw": "0.20.0-beta2sdk"
+},
 "scripts": {
    "test": "jshint --verbose fidoedit.js editcore.js"
 }
