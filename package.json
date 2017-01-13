@@ -12,6 +12,7 @@
    "url": "https://github.com/Mithgol/fidoedit.git"
 },
 "dependencies": {
+   "jquery": "~3.1.1",
    "nw": "0.20.0-beta2sdk"
 },
 "scripts": {
