@@ -2,9 +2,9 @@
 
 This application (**FidoEdit**) is a FGHI-compatible editor of Fidonet messages.
 
-It is designed to be called by a GoldED-compatible editor (such as GoldED+ or GoldED-NSF) when it calls an external editor.
+FidoEdit is designed to be called by a GoldED-compatible editor (such as GoldED+ or GoldED-NSF) as an external editor.
 
-This application is written in JavaScript and requires [Node.js](http://nodejs.org/) to run. This application is tested against the latest stable version of Node.js.
+FidoEdit is written in HTML5 + CSS + JavaScript and uses the latest [nw.js](https://github.com/nwjs/nw.js) engine to run. A system supported by nw.js (such as Windows, or Linux, or Mac OS X) is required.
 
 This application is currently in an early phase of its development and thus does not have the desired level of feature completeness.
 

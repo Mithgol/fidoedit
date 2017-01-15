@@ -1,7 +1,6 @@
 {
 "name": "fidoedit",
 "bin": "./fidoedit.js",
-"main": "editcore.js",
 "version": "0.0.1",
 "description": "FidoEdit: FGHI-compatible Fidonet editor.",
 "keywords": ["Fidonet", "FTN", "edit", "editor"],
@@ -16,6 +15,13 @@
    "nw": "0.20.0-beta2sdk"
 },
 "scripts": {
-   "test": "jshint --verbose fidoedit.js editcore.js"
+   "test": "jshint --verbose fidoedit.js"
+},
+"main": "index.html",
+"window": {
+   "width": 600,
+   "height": 400,
+   "position": "center",
+   "title": "Starting FidoEdit..."
 }
 }

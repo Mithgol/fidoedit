@@ -1,5 +1,10 @@
 #!/usr/bin/env node
 
-var editcore = require('./');
-
-console.log( editcore() );
+require('child_process').spawn(
+   require('nw').findpath(),
+   ['.'].concat( process.argv.slice(2) ),
+   {
+      cwd: __dirname,
+      stdio: 'ignore'
+   }
+);
