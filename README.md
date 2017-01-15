@@ -12,11 +12,33 @@ This application is currently in an early phase of its development and thus
 
 [![(npm package version)](https://nodei.co/npm/fidoedit.png?downloads=true&downloadRank=true)](https://npmjs.org/package/fidoedit)
 
-* Latest packaged version: `npm install fidoedit`
+### Global installation
 
-* Latest githubbed version: `npm install https://github.com/Mithgol/fidoedit/tarball/master`
+* Latest packaged version: `npm install -g fidoedit`
 
-You may visit https://github.com/Mithgol/fidoedit#readme occasionally to read the latest `README` because the package's version is not planned to grow after changes when they happen in `README` only. (And `npm publish --force` is [forbidden](http://blog.npmjs.org/post/77758351673/no-more-npm-publish-f) nowadays.)
+* Latest githubbed version: `npm install -g https://github.com/Mithgol/fidoedit/tarball/master`
+
+The application becomes installed globally (for example, in `node_modules/fidoedit` subdirectory in your Node's directory) and appears in your `PATH`.
+
+You may use `fidoedit` command to run the application.
+
+### Local installation
+
+Instead of the above, download the [ZIP-packed](https://github.com/Mithgol/fidoedit/archive/master.zip) source code of FidoEdit and unpack it to some directory. Then run `npm install --production` in that directory.
+
+Unlike the global installation (`npm -g`), the application does not appear in the `PATH`, and thus you'll have to run it directly from the application's directory. You'll also have to run `node fidoedit` instead of `fidoedit`.
+
+#### Portability of a local installation
+
+If you install FidoEdit in a directory on a portable drive (such as [a USB flash drive](https://en.wikipedia.org/wiki/USB_flash_drive)), you may move it to a different system and run FidoEdit there if the following requirements are met:
+
+* The platform has to be the same (i.e. move from Linux to Linux, or from Windows to Windows, or from Mac OS X to Max OS X).
+
+* The architecture has to be the same (i.e. move from a 32-bit system to 32-bit or from 64-bit system to 64-bit).
+
+* It is also possible to run FidoEdit on a 64-bit Windows if FidoEdit was originally installed on a 32-bit Windows, but not vice versa.
+
+* Node.js has to be installed on the target system.
 
 ## Testing FidoEdit
 
