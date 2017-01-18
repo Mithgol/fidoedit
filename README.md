@@ -4,9 +4,15 @@ This application (**FidoEdit**) is a FGHI-compatible editor of Fidonet messa
 
 FidoEdit is designed to be called by a GoldED-compatible editor (such as GoldED+ or GoldED-NSF) as an external editor.
 
-FidoEdit is written in HTML5 + CSS + JavaScript and uses the latest [nw.js](https://github.com/nwjs/nw.js) engine to run. A system supported by nw.js (such as Windows, or Linux, or Mac OS X) is required.
-
 This application is currently in an early phase of its development and thus does not have the desired level of feature completeness.
+
+## Requirements
+
+* FidoEdit is written in HTML5 + CSS + JavaScript and uses the latest [nw.js](https://github.com/nwjs/nw.js) engine to run. A system supported by nw.js (such as Windows, or Linux, or Mac OS X) is required.
+
+* FidoEdit currently requires **Node.js** and **npm** to be present (installed) on your system; the version of **npm** must be 3.0.0 or greater. (Usually [Node.js installers](https://nodejs.org/en/download/) install both Node.js and npm.)
+
+* FidoEdit currently uses ParaType's fonts of three font families: PT Sans, PT Serif, PT Mono. These families were released by ParaType with an open user license; use the corresponding ParaType's web page ([in English](http://www.paratype.com/public/) or [in Russian](http://www.paratype.ru/public/)) to download these fonts and install them on your system.
 
 ## Installing FidoEdit
 
