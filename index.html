@@ -3,6 +3,29 @@
 <head>
 <meta charset="utf-8">
 <title>FidoEdit</title>
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="node_modules/autosize/dist/autosize.min.js"></script>
+<script>
+var errorCLI = errHTML => $('body').html(errHTML);
+
+$(() => {
+   var paramsCLI = nw.App.argv;
+
+   var msgFilePath = paramsCLI.find( param => param.startsWith('--file=') );
+   if( typeof msgFilePath === 'undefined') return errorCLI(
+      'Filename has not been given.'
+   );
+   msgFilePath = msgFilePath.slice( '--file='.length );
+
+   var lineNum = paramsCLI.find( param => param.startsWith('--line=') );
+   if( typeof lineNum === 'undefined') return errorCLI(
+      'Line number has not been given.'
+   );
+   lineNum = lineNum.slice( '--line='.length );
+
+   $('body').html(`File «<b>${msgFilePath}</b>», line <b>${lineNum}.</b>`);
+});
+</script>
 </head>
 <body>
 Hello world.
