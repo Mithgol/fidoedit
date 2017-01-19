@@ -13,7 +13,7 @@
 "dependencies": {
    "autosize": "~3.0.20",
    "jquery": "~3.1.1",
-   "nw": "0.20.0-beta2sdk"
+   "nw": "0.20.0-rc1sdk"
 },
 "scripts": {
    "test": "jshint --verbose fidoedit.js"
