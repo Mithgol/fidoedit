@@ -58,4 +58,6 @@ After that you may run `npm test` (in the directory of FidoEdit). Only the J
 
 ## License
 
-MIT license (see the `LICENSE` file).
+This source code is MIT-licensed (see the `LICENSE` file).
+
+The directory `bootstrap` contains [Bootstrap](http://getbootstrap.com/) version 3.3.7 ([customized](http://getbootstrap.com/customize/) to use ParaType's fonts and to refrain from containing Glyphicons) under its own [MIT license]((https://github.com/twbs/bootstrap/blob/master/LICENSE).
