@@ -1,12 +1,19 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>FidoEdit</title>
+<!-- Bootstrap -->
+<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/bootstrap/js/bootstrap.min.js"></script>
 <script src="node_modules/autosize/dist/autosize.min.js"></script>
+<link href="/awesome/css/font-awesome.min.css" rel="stylesheet">
 <script>
-var errorCLI = errHTML => $('body').html(errHTML);
+var errorCLI = errHTML => $('.purposeMain').html(errHTML);
 
 $(() => {
    var paramsCLI = nw.App.argv;
@@ -23,11 +30,15 @@ $(() => {
    );
    lineNum = lineNum.slice( '--line='.length );
 
-   $('body').html(`File «<b>${msgFilePath}</b>», line <b>${lineNum}.</b>`);
+   $('.purposeMain').html(`File «<b>${msgFilePath}</b>», line <b>${lineNum}.</b>`);
 });
 </script>
 </head>
 <body>
+<div class="container-fluid">
+<div class="row"><div class="col-xs-12 purposeMain">
 Hello world.
+</div></div>
+</div>
 </body>
 </html>
