@@ -16,7 +16,7 @@
    "font-awesome": "~4.7.0",
    "jquery": "~3.1.1",
    "jquery.scrollto": "~2.1.2",
-   "nw": "0.20.0-rc1sdk"
+   "nw": "0.20.0-sdk"
 },
 "scripts": {
    "test": "jshint --verbose fidoedit.js"
