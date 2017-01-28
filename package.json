@@ -19,7 +19,7 @@
    "nw": "0.20.0-sdk"
 },
 "scripts": {
-   "test": "jshint --verbose fidoedit.js"
+   "test": "jshint --verbose fidoedit.js fe-core.js"
 },
 "main": "index.html",
 "window": {
