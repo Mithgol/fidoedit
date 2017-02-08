@@ -1,4 +1,8 @@
-﻿/*global $, emojify: true, nw, twemoji */
+﻿/*global $, emojify: true, escapeHTML:true, nw, twemoji */
+var fs = nw.require('fs');
+var async = nw.require('async');
+/* var; TODO: use it */ escapeHTML = nw.require('lodash.escape');
+var iconv = nw.require('iconv-lite');
 
 /* var; TODO: use it */ emojify = () => {
    if( twemoji ) twemoji.parse( $('body')[0] );
@@ -8,6 +12,13 @@ var errorCLI = errHTML => $('.purposeMain').html([
    '<div class="alert alert-danger" role="alert">',
    errHTML, '</div>'
 ].join(''));
+
+var convertFileToText = (filePath, fileDone) => async.waterfall([
+   callback => fs.readFile(filePath, callback),
+   (fileBuf, callback) => callback(null,
+      iconv.decode(fileBuf, 'cp866')
+   )
+], fileDone);
 
 $(() => {
    var paramsCLI = nw.App.argv;
@@ -24,7 +35,9 @@ $(() => {
    );
    lineNum = lineNum.slice( '--line='.length );
 
-   $('.purposeMain').html(
-      `File «<b>${msgFilePath}</b>», line <b>${lineNum}.</b>`
-   );
+   convertFileToText(msgFilePath, (err, fileText) => {
+      if( err ) return errorCLI(`Error reading «${msgFilePath}».`);
+
+      $('.purposeMain').html(`<textarea>${fileText}</textarea>`);
+   });
 });
