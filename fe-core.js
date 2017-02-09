@@ -39,5 +39,6 @@ $(() => {
       if( err ) return errorCLI(`Error reading «${msgFilePath}».`);
 
       $('.purposeMain').html(`<textarea>${fileText}</textarea>`);
+      autosize($('.purposeMain textarea'));
    });
 });
