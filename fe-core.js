@@ -1,4 +1,4 @@
-﻿/*global $, emojify: true, escapeHTML:true, nw, twemoji */
+﻿/*global $, emojify: true, escapeHTML:true, nw, autosize, twemoji */
 var fs = nw.require('fs');
 var async = nw.require('async');
 /* var; TODO: use it */ escapeHTML = nw.require('lodash.escape');

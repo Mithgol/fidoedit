@@ -46,6 +46,40 @@ If you install FidoEdit in a directory on a portable drive (such as [a USB
 
 * Node.js has to be installed on the target system.
 
+#### Be patient
+
+More than 200 megabytes of dependencies are installed. Most of them contain dozens of small files with source code and metadata. An installation on a low-speed (USB 2.0) flash drive may take, for example, **half an hour** on a system with a limited Internet connection.
+
+## Launching FidoEdit from GoldED
+
+Any version of GoldED (for example, GoldED+ or GoldED-NSF) can be configured to use FidoEdit as an external editor.
+
+The corresponding configuration line has to be added to the GoldED's configuration to enable such use of FidoEdit.
+
+The configuration usually resides in the main GoldED's configuration file (usually called `golded.cfg` or `gedcyg.cfg`) and the added line defines an external editor.
+
+To launch a global installation of FidoEdit, use the following line:
+
+    Editor fidoedit --line=@line "--file=@file"
+
+To launch a local installation of FidoEdit, use the following line:
+
+    Editor node \path\to\FidoEdit\fidoedit --line=@line "--file=@file"
+
+* Substitute `\path\to\FidoEdit` with the real path that leads to FidoEdit on your system.
+
+* If not on Windows, `/` instead of `\` is likely to be used in your paths.
+
+Afterwards GoldED would let you choose (and use) FidoEdit as your external editor of a Fidonet message's body when you finish editing that message's header.
+
+GoldED's behaviour is additionally controlled by the configuration settings `EDITMENU` and `EDITINTERNAL` (as described on page 42 of [GoldED+ 1.0.0 Reference Manual](https://sourceforge.net/projects/golded-plus/files/golded-plus-manual/)):
+
+* `EditMenu yes` (default) allows you to explicitly choose the internal or the external editor before editing the message's body. `EditMenu no` immediately launches the preferred editor.
+
+* `EditInternal yes` (default) makes the internal editor the preferred one. `EditInternal no` makes the external editor the preferred one.
+
+* Caution: you won't be able to launch FidoEdit if `EditMenu no` and `EditInternal yes` are simultaneously in effect (because in that case GoldED would prefer its own internal editor).
+
 ## Testing FidoEdit
 
 [![(build testing status)](https://img.shields.io/travis/Mithgol/fidoedit/master.svg?style=plastic)](https://travis-ci.org/Mithgol/fidoedit)
