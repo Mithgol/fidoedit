@@ -38,6 +38,8 @@ $(() => {
    convertFileToText(msgFilePath, (err, fileText) => {
       if( err ) return errorCLI(`Error reading «${msgFilePath}».`);
 
+      nw.Window.get().maximize();
+
       $('.purposeMain').html(`<textarea>${fileText}</textarea>`);
       autosize($('.purposeMain textarea'));
    });
