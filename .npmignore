@@ -30,6 +30,9 @@ node_modules
 # NPM error logs
 npm-debug.log
 
+# Project-specific
+fidoedit.conf
+
 # .npmignore should ignore tests and Git stuff
 test
 .gitignore
