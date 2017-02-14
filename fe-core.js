@@ -42,5 +42,6 @@ $(() => {
 
       $('.purposeMain').html(`<textarea>${fileText}</textarea>`);
       autosize($('.purposeMain textarea'));
+      $('textarea').focus();
    });
 });
