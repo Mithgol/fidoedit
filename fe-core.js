@@ -1,5 +1,6 @@
 ﻿/*global $, emojify: true, escapeHTML:true, nw, autosize, twemoji */
 var fs = nw.require('fs');
+var os = nw.require('os');
 var async = nw.require('async');
 /* var; TODO: use it */ escapeHTML = nw.require('lodash.escape');
 var iconv = nw.require('iconv-lite');
@@ -19,6 +20,12 @@ var convertFileToText = (filePath, fileDone) => async.waterfall([
       iconv.decode(fileBuf, 'cp866')
    )
 ], fileDone);
+
+var convertTextareaToFile = ($textarea, filePath, fileDone) => fs.writeFile(
+   filePath,
+   iconv.encode( $textarea.val().replace(/\n/g, os.EOL), 'cp866' ),
+   fileDone
+);
 
 $(() => {
    var paramsCLI = nw.App.argv;
@@ -42,6 +49,16 @@ $(() => {
 
       $('.purposeMain').html(`<textarea>${fileText}</textarea>`);
       autosize($('.purposeMain textarea'));
-      $('textarea').focus();
+      $('.purposeMain textarea').focus();
+
+      nw.Window.get().on('close', function(){
+         var thisWin = this;
+         thisWin.hide(); // imitate closing, prevent futher `close` events
+         convertTextareaToFile(
+            $('.purposeMain textarea'),
+            msgFilePath,
+            ( /* err */ ) => thisWin.close(true) // ignore `err`, force close
+         );
+      });
    });
 });
