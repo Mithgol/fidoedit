@@ -1,8 +1,9 @@
-﻿/*global $, emojify: true, escapeHTML:true, nw, autosize, twemoji */
+﻿/*global $, emojify: true, nw, autosize, twemoji */
 var fs = nw.require('fs');
 var os = nw.require('os');
 var async = nw.require('async');
-/* var; TODO: use it */ escapeHTML = nw.require('lodash.escape');
+var escapeHTML = nw.require('lodash.escape');
+var fiunis = nw.require('fiunis');
 var iconv = nw.require('iconv-lite');
 
 /* var; TODO: use it */ emojify = () => {
@@ -23,7 +24,7 @@ var convertFileToText = (filePath, fileDone) => async.waterfall([
 
 var convertTextareaToFile = ($textarea, filePath, fileDone) => fs.writeFile(
    filePath,
-   iconv.encode( $textarea.val().replace(/\n/g, os.EOL), 'cp866' ),
+   fiunis.encode( $textarea.val().replace(/\n/g, os.EOL), 'cp866' ),
    fileDone
 );
 
@@ -43,7 +44,9 @@ $(() => {
    lineNum = lineNum.slice( '--line='.length );
 
    convertFileToText(msgFilePath, (err, fileText) => {
-      if( err ) return errorCLI(`Error reading «${msgFilePath}».`);
+      if( err ) return errorCLI(
+         `Error reading «${ escapeHTML(msgFilePath) }».`
+      );
 
       nw.Window.get().maximize();
 
