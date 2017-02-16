@@ -28,6 +28,16 @@ var convertTextareaToFile = ($textarea, filePath, fileDone) => fs.writeFile(
    fileDone
 );
 
+var textareaGoToLine = ($textarea, lineNum) => {
+   var prevCharCount = $textarea.val().split( /(\n)/ ).reduce(
+      (prevCnt, nextItem, idx) => (
+         idx < (lineNum - 1 ) * 2
+      ) ? prevCnt + nextItem.length : prevCnt,
+      0
+   );
+   $textarea.focus()[0].setSelectionRange(prevCharCount, prevCharCount);
+};
+
 $(() => {
    var paramsCLI = nw.App.argv;
 
@@ -42,6 +52,7 @@ $(() => {
       'Line number has not been given.'
    );
    lineNum = lineNum.slice( '--line='.length );
+   if( ! /^\d+$/.test(''+lineNum) || lineNum < 1 ) lineNum = 1;
 
    convertFileToText(msgFilePath, (err, fileText) => {
       if( err ) return errorCLI(
@@ -52,7 +63,7 @@ $(() => {
 
       $('.purposeMain').html(`<textarea>${fileText}</textarea>`);
       autosize($('.purposeMain textarea'));
-      $('.purposeMain textarea').focus();
+      textareaGoToLine( $('.purposeMain textarea'), lineNum );
 
       nw.Window.get().on('close', function(){
          var thisWin = this;
