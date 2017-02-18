@@ -92,6 +92,8 @@ After that you may run `npm test` (in the directory of FidoEdit). Only the J
 
 ## License
 
-This source code is MIT-licensed (see the `LICENSE` file).
+MIT License (see the `LICENSE` file), with the following exceptions:
 
-The directory `bootstrap` contains [Bootstrap](http://getbootstrap.com/) version 3.3.7 ([customized](http://getbootstrap.com/customize/) to use ParaType's fonts and to refrain from containing Glyphicons) under its own [MIT license]((https://github.com/twbs/bootstrap/blob/master/LICENSE).
+* The directory `bootstrap` contains [Bootstrap](http://getbootstrap.com/) version 3.3.7 ([customized](http://getbootstrap.com/customize/) to use ParaType's fonts and to refrain from containing Glyphicons) under its own [MIT license]((https://github.com/twbs/bootstrap/blob/master/LICENSE).
+
+* The file `jsload.gif` is generated on http://ajaxload.info/ where the terms of the [Do What The Fuck You Want To Public License](http://www.wtfpl.net/) are said to apply.
