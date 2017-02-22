@@ -1,7 +1,7 @@
 {
 "name": "fidoedit",
 "bin": "./fidoedit.js",
-"version": "0.0.1",
+"version": "0.0.2",
 "description": "FidoEdit: FGHI-compatible Fidonet editor.",
 "keywords": ["Fidonet", "FTN", "edit", "editor"],
 "author": { "name": "Mithgol the Webmaster" },

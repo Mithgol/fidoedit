@@ -18,7 +18,7 @@ var errorCLI = errHTML => $('.purposeMain').html([
 var convertFileToText = (filePath, fileDone) => async.waterfall([
    callback => fs.readFile(filePath, callback),
    (fileBuf, callback) => callback(null,
-      iconv.decode(fileBuf, 'cp866')
+      fiunis.decode( iconv.decode(fileBuf, 'cp866') )
    )
 ], fileDone);
 
