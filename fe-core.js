@@ -10,6 +10,19 @@ var iconv = nw.require('iconv-lite');
    if( twemoji ) twemoji.parse( $('body')[0] );
 };
 
+$.fn.extend({
+   animateCSS: function(animationName, onFinish){
+      var animationEnd = [
+         'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend ',
+         'animationend'
+      ].join('');
+      this.addClass('animated ' + animationName).one(animationEnd, function(){
+         $(this).removeClass('animated ' + animationName);
+         if( typeof onFinish === 'function' ) onFinish.call(this);
+      });
+   }
+});
+
 var errorCLI = errHTML => $('.purposeMain').html([
    '<div class="alert alert-danger" role="alert">',
    errHTML, '</div>'
@@ -73,6 +86,18 @@ $(() => {
             msgFilePath,
             ( /* err */ ) => thisWin.close(true) // ignore `err`, force close
          );
+      });
+
+      $('.tabPreview').on('click', function(){
+         var $this = $(this);
+         $('.tabWrite').removeClass('active');
+         $this.addClass('active');
+      });
+
+      $('.tabWrite').on('click', function(){
+         var $this = $(this);
+         $('.tabPreview').removeClass('active');
+         $this.addClass('active');
       });
    });
 });
