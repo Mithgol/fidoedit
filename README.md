@@ -80,6 +80,12 @@ GoldED's behaviour is additionally controlled by the configuration settings `E
 
 * Caution: you won't be able to launch FidoEdit if `EditMenu no` and `EditInternal yes` are simultaneously in effect (because in that case GoldED would prefer its own internal editor).
 
+GoldED's behaviour is additionally controlled by the configuration setting `EDITHARDLINES` (as described on page 40 of [GoldED+ 1.0.0 Reference Manual](https://sourceforge.net/projects/golded-plus/files/golded-plus-manual/)):
+
+* `EditHardLines No` allows GoldED to read the editor message file exactly as entered. This setting is required for FidoEdit because FidoEdit does not try to insert linebreaks (and therefore does not resemble those earlier editors that `EditHardLines Yes` was designed against).
+
+* Even with `EditHardLines No` GoldED itself breaks long lines of text (inserts additional linebreaks in the editor message file) before GoldED calls FidoEdit. (It seems to be a bug in GoldED because it introduces the same “ragged quotes” that are condemned on page 7 of [GoldED+ 1.0.0 Users Guide Manual](https://sourceforge.net/projects/golded-plus/files/golded-plus-manual/).) Therefore you can use FidoEdit to create long lines of text, but not to re-edit them.
+
 ## Testing FidoEdit
 
 [![(build testing status)](https://img.shields.io/travis/Mithgol/fidoedit/master.svg?style=plastic)](https://travis-ci.org/Mithgol/fidoedit)
