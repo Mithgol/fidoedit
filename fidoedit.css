@@ -1,4 +1,7 @@
-body { zoom: reset; }
+body {
+   zoom: reset;
+   padding-top: 70px;
+}
 
 .imageUUE IMG { max-width: 100%; }
 blockquote.fidoQuote, blockquote.fidoQuoteOuter { margin-bottom: 0; }
