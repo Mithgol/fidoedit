@@ -1,4 +1,4 @@
-﻿/*global $, emojify: true, nw, autosize, twemoji */
+﻿/*global window, $, emojify: true, nw, autosize, twemoji */
 var fs = nw.require('fs');
 var os = nw.require('os');
 var async = nw.require('async');
@@ -90,13 +90,17 @@ $(() => {
 
       $('.tabPreview').on('click', function(){
          var $this = $(this);
-         $('.tabWrite').removeClass('active');
+         $('.tabWrite').data(
+            'scrolltop', $(window).scrollTop()
+         ).removeClass('active');
          $this.addClass('active');
       });
 
       $('.tabWrite').on('click', function(){
          var $this = $(this);
-         $('.tabPreview').removeClass('active');
+         $('.tabPreview').data(
+            'scrolltop', $(window).scrollTop()
+         ).removeClass('active');
          $this.addClass('active');
       });
    });
