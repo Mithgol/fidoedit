@@ -1,8 +1,16 @@
-﻿/*global window, $, emojify: true, nw, autosize, twemoji */
+﻿/*global window, $, emojify: true, FidoHTML: true, nw, autosize, twemoji */
 var fs = nw.require('fs');
 var os = nw.require('os');
 var async = nw.require('async');
 var escapeHTML = nw.require('lodash.escape');
+/* var; TODO: use it */ FidoHTML = nw.require('fidohtml')({
+   dataMode: true,
+   URLPrefixes: {
+      '*': '', // default
+      fs: IPFSURL => IPFSURL.replace( /^fs:\/*/g, 'https://ipfs.io/' ),
+      ipfs: IPFSURL => IPFSURL.replace( /^ipfs:\/*/g, 'https://ipfs.io/' )
+   }
+});
 var fiunis = nw.require('fiunis');
 var iconv = nw.require('iconv-lite');
 
@@ -75,8 +83,10 @@ $(() => {
       nw.Window.get().maximize();
 
       $('.purposeMain').html(`<textarea>${fileText}</textarea>`);
-      autosize($('.purposeMain textarea'));
-      textareaGoToLine( $('.purposeMain textarea'), lineNum );
+
+      var $textarea = $('.purposeMain textarea');
+      autosize($textarea);
+      textareaGoToLine($textarea, lineNum);
 
       nw.Window.get().on('close', function(){
          var thisWin = this;
@@ -94,6 +104,10 @@ $(() => {
             'scrolltop', $(window).scrollTop()
          ).removeClass('active');
          $this.addClass('active');
+
+         $textarea.animateCSS('fadeOutUp', function(){
+            $(this).hide();
+         });
       });
 
       $('.tabWrite').on('click', function(){
@@ -102,6 +116,10 @@ $(() => {
             'scrolltop', $(window).scrollTop()
          ).removeClass('active');
          $this.addClass('active');
+
+         $textarea.show();
+         autosize.update($textarea);
+         $textarea.focus();
       });
    });
 });
