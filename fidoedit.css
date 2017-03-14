@@ -4,7 +4,9 @@ body {
 }
 
 .imageUUE IMG { max-width: 100%; }
-blockquote.fidoQuote, blockquote.fidoQuoteOuter { margin-bottom: 0; }
+blockquote.fidoQuote, blockquote.fidoQuoteOuter {
+   margin-bottom: 0; font-size: inherit;
+}
 .monospaceBlock { line-height: 1; }
 .monospaceBlock code {
    color: inherit;
@@ -17,3 +19,4 @@ blockquote.fidoQuote, blockquote.fidoQuoteOuter { margin-bottom: 0; }
 .tagline { color: #ff851b; } /* http://clrs.cc/ orange */
 
 .purposeMain textarea { width: 100%; resize: none; }
+.purposeMain .previewArea { padding-bottom: 0.5em; }

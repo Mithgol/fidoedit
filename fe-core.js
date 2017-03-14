@@ -31,10 +31,52 @@ $.fn.extend({
    }
 });
 
+var msDelay = 500;
+
 var errorCLI = errHTML => $('.purposeMain').html([
    '<div class="alert alert-danger" role="alert">',
    errHTML, '</div>'
 ].join(''));
+
+var previewClickHandler = function(){
+   var safeSchemes = [
+      'http',
+      'https',
+      'ftp',
+      'mailto',
+      'ed2k',
+      'facetime',
+      'feed',
+      'geo',
+      'irc',
+      'ircs',
+      'magnet',
+      'news',
+      'nntp',
+      'sip',
+      'sips',
+      'skype',
+      'sms',
+      'ssh',
+      'tel',
+      'telnet',
+      'tftp',
+      'xmpp'
+   ];
+
+   var $this = $(this);
+   var URL = $this.data('href');
+
+   var separatorPosition = URL.indexOf(':');
+   if( separatorPosition < 0 ) return false;
+
+   var schemeLC = URL.slice(0, separatorPosition).toLowerCase();
+   if( safeSchemes.includes(schemeLC) ){
+      nw.Shell.openExternal(URL);
+   }
+
+   return false;
+};
 
 var convertFileToText = (filePath, fileDone) => async.waterfall([
    callback => fs.readFile(filePath, callback),
@@ -82,9 +124,13 @@ $(() => {
 
       nw.Window.get().maximize();
 
-      $('.purposeMain').html(`<textarea>${fileText}</textarea>`);
+      $('.purposeMain').html(
+        `<textarea>${fileText}</textarea><div class="previewArea"></div>`
+      );
 
       var $textarea = $('.purposeMain textarea');
+      var $preview = $('.purposeMain .previewArea');
+
       autosize($textarea);
       textareaGoToLine($textarea, lineNum);
 
@@ -105,8 +151,15 @@ $(() => {
          ).removeClass('active');
          $this.addClass('active');
 
-         $textarea.animateCSS('fadeOutUp', function(){
-            $(this).hide();
+         $textarea.animateCSS('fadeOutUp', () => {
+            $textarea.hide();
+            $preview.empty().show().html(
+               FidoHTML.fromText( $textarea.val() )
+            );
+            $.scrollTo($this.data('scrolltop'), {
+               duration: msDelay,
+               axis: 'y'
+            });
          });
       });
 
@@ -117,9 +170,18 @@ $(() => {
          ).removeClass('active');
          $this.addClass('active');
 
-         $textarea.show();
-         autosize.update($textarea);
-         $textarea.focus();
+         $preview.slideUp(msDelay, () => {
+            $preview.empty();
+            $textarea.show();
+            autosize.update($textarea);
+            $textarea.focus();
+            $.scrollTo($this.data('scrolltop'), {
+               duration: msDelay,
+               axis: 'y'
+            });
+         });
       });
+
+      $preview.on('click', 'a[data-href]', previewClickHandler);
    });
 });
