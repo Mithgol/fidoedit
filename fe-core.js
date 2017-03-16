@@ -151,7 +151,7 @@ $(() => {
          ).removeClass('active');
          $this.addClass('active');
 
-         $textarea.animateCSS('fadeOutUp', () => {
+         $textarea.animateCSS('fadeOutUp', function(){
             $textarea.hide();
             $preview.empty().show().html(
                FidoHTML.fromText( $textarea.val() )
@@ -170,8 +170,8 @@ $(() => {
          ).removeClass('active');
          $this.addClass('active');
 
-         $preview.slideUp(msDelay, () => {
-            $preview.empty();
+         $preview.animateCSS('fadeOutUp', function(){
+            $preview.hide().empty();
             $textarea.show();
             autosize.update($textarea);
             $textarea.focus();
