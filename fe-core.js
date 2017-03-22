@@ -1,9 +1,12 @@
-﻿/*global window, $, emojify: true, FidoHTML: true, nw, autosize, twemoji */
+﻿/*global window, $, nw, autosize, twemoji */
 var fs = nw.require('fs');
 var os = nw.require('os');
 var async = nw.require('async');
 var escapeHTML = nw.require('lodash.escape');
-/* var; TODO: use it */ FidoHTML = nw.require('fidohtml')({
+var fiunis = nw.require('fiunis');
+var iconv = nw.require('iconv-lite');
+
+var FidoHTML = nw.require('fidohtml')({
    dataMode: true,
    URLPrefixes: {
       '*': '', // default
@@ -11,11 +14,9 @@ var escapeHTML = nw.require('lodash.escape');
       ipfs: IPFSURL => IPFSURL.replace( /^ipfs:\/*/g, 'https://ipfs.io/' )
    }
 });
-var fiunis = nw.require('fiunis');
-var iconv = nw.require('iconv-lite');
 
-/* var; TODO: use it */ emojify = () => {
-   if( twemoji ) twemoji.parse( $('body')[0] );
+var emojify = $container => {
+   if( twemoji ) twemoji.parse( $container[0] );
 };
 
 $.fn.extend({
@@ -156,6 +157,7 @@ $(() => {
             $preview.empty().show().html(
                FidoHTML.fromText( $textarea.val() )
             );
+            emojify($preview);
             $.scrollTo($this.data('scrolltop'), {
                duration: msDelay,
                axis: 'y'

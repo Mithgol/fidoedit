@@ -20,3 +20,5 @@ blockquote.fidoQuote, blockquote.fidoQuoteOuter {
 
 .purposeMain textarea { width: 100%; resize: none; }
 .purposeMain .previewArea { padding-bottom: 0.5em; }
+
+img.emoji { height: 24px; width: 24px; }
