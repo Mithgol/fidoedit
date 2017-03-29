@@ -21,10 +21,7 @@ var emojify = $container => {
 
 $.fn.extend({
    animateCSS: function(animationName, onFinish){
-      var animationEnd = [
-         'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend ',
-         'animationend'
-      ].join('');
+      var animationEnd = 'animationend';
       this.addClass('animated ' + animationName).one(animationEnd, function(){
          $(this).removeClass('animated ' + animationName);
          if( typeof onFinish === 'function' ) onFinish.call(this);
