@@ -153,7 +153,10 @@ $(() => {
             $textarea.hide();
             $preview.empty().show().html(
                FidoHTML.fromText( $textarea.val() )
-            );
+            ).find('img').each(function(){ // possible TODO: image filtering
+               var $this = $(this);
+               $this.attr('src', $this.data('src'));
+            });
             emojify($preview);
             $.scrollTo($this.data('scrolltop'), {
                duration: msDelay,
