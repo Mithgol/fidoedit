@@ -100,6 +100,8 @@ var textareaGoToLine = ($textarea, lineNum) => {
 };
 
 $(() => {
+   $('.purposeFastQuit').on('click', () => void process.exit());
+
    var paramsCLI = nw.App.argv;
 
    var msgFilePath = paramsCLI.find( param => param.startsWith('--file=') );
