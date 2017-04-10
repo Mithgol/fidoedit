@@ -104,6 +104,9 @@ $(() => {
 
    var paramsCLI = nw.App.argv;
 
+   var addrIPFS = paramsCLI.find( param => param.startsWith('--ipfs=') );
+   if( typeof addrIPFS !== 'undefined') addrIPFS.slice( '--ipfs='.length );
+
    var msgFilePath = paramsCLI.find( param => param.startsWith('--file=') );
    if( typeof msgFilePath === 'undefined') return errorCLI(
       'Filename has not been given.'
