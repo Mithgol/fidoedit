@@ -50,6 +50,12 @@ If you install FidoEdit in a directory on a portable drive (such as [a USB
 
 More than 200 megabytes of dependencies are installed. Most of them contain dozens of small files with source code and metadata. An installation on a low-speed (USB 2.0) flash drive may take, for example, **half an hour** on a system with a limited Internet connection.
 
+### An optional dependency
+
+After the installation you may receive an npm warning saying that `node-webcrypto-ossl` (an optional dependency of [JavaScript IPFS API](https://github.com/ipfs/js-ipfs-api)) could not be installed. It happens if you do not have [C++ build tools for Windows](https://github.com/felixrieseberg/windows-build-tools) (or their Linux or macOS counterparts) required to build that dependency on your system, or if such tools are incomplete or outdated.
+
+Ignore the warning. The dependency is optional and IPFS API is able to work without it.
+
 ## Launching FidoEdit from GoldED
 
 Any version of GoldED (for example, GoldED+ or GoldED-NSF) can be configured to use FidoEdit as an external editor.
