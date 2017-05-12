@@ -28,6 +28,8 @@ The application becomes installed globally (for example, in `node_modules/fidoe
 
 You may use `fidoedit` command to run the application.
 
+You should create a configuration file for the installed FidoEdit (in its directory) before you launch it.
+
 ### Local installation
 
 Instead of the above, download the [ZIP-packed](https://github.com/Mithgol/fidoedit/archive/master.zip) source code of FidoEdit and unpack it to some directory. Then run `npm install --production` in that directory.
@@ -55,6 +57,16 @@ More than 200 megabytes of dependencies are installed. Most of them contain d
 After the installation you may receive an npm warning saying that `node-webcrypto-ossl` (an optional dependency of [JavaScript IPFS API](https://github.com/ipfs/js-ipfs-api)) could not be installed. It happens if you do not have [C++ build tools for Windows](https://github.com/felixrieseberg/windows-build-tools) (or their Linux or macOS counterparts) required to build that dependency on your system, or if such tools are incomplete or outdated.
 
 Ignore the warning. The dependency is optional and IPFS API is able to work without it.
+
+## Configuration options
+
+FidoEdit uses the configuration given in the file `fidoedit.conf` in FidoEdit's directory (in the same directory where FidoEdit's `package.json` resides).
+
+You may use `fidoedit.conf-example` as an example. (Or even copy `fidoedit.conf-example` to `fidoedit.conf` and edit in your favourite text editor.)
+
+The following configuration option is supported:
+
+* The line `IPFS servername:portnumber` (in the example, `IPFS localhost:5001`) should contain an address (such as `localhost`) and a port (such as `5001`) of an IPFS daemon's HTTP API. (If that line is present in the configuration, such IPFS daemon can be used is used to publish files that illustrate Fidonet messages.) The default value (`localhost:5001`) implies that the daemon runs locally and uses the default port settings of [`go-ipfs`](https://github.com/ipfs/go-ipfs/).
 
 ## Launching FidoEdit from GoldED
 
