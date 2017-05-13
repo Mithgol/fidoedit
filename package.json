@@ -15,6 +15,7 @@
    "async": "~2.4.0",
    "autosize": "~3.0.20",
    "fidohtml": "~2.0.0",
+   "filedrop": "~2.0.0",
    "fiunis": "~2.1.4",
    "font-awesome": "~4.7.0",
    "iconv-lite": "~0.4.15",
