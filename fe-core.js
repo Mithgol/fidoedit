@@ -16,7 +16,15 @@ var FidoHTML = nw.require('fidohtml')({
 });
 
 var emojify = $container => {
-   if( twemoji ) twemoji.parse( $container[0] );
+   if( twemoji ) twemoji.parse($container[0], {
+      callback: (icon, options) => [
+         'a9',   // © copyright
+         'ae',   // ® registered trademark
+         '2122'  // ™ trademark
+      ].includes(icon) ? false : (
+         options.base + options.size + '/' + icon + options.ext
+      )
+   });
 };
 
 $.fn.extend({
