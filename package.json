@@ -13,7 +13,7 @@
 "dependencies": {
    "animate.css": "~3.5.2",
    "async": "~2.5.0",
-   "autosize": "~3.0.20",
+   "autosize": "~4.0.0",
    "fidohtml": "~2.0.4",
    "filedrop": "~2.0.0",
    "fiunis": "~3.0.0",
