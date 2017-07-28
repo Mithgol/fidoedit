@@ -50,7 +50,7 @@ If you install FidoEdit in a directory on a portable drive (such as [a USB
 
 #### Be patient
 
-More than 200 megabytes of dependencies are installed. Most of them contain dozens of small files with source code and metadata. An installation on a low-speed (USB 2.0) flash drive may take, for example, **half an hour** on a system with a limited Internet connection.
+More than 250 megabytes of dependencies are installed. Most of them contain dozens of small files with source code and metadata. An installation on a low-speed (USB 2.0) flash drive may take, for example, **half an hour** on a system with a limited Internet connection.
 
 ### An optional dependency
 
