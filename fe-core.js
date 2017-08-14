@@ -17,6 +17,9 @@ var FidoHTML = nw.require('fidohtml')({
 
 var emojify = $container => {
    if( twemoji ) twemoji.parse($container[0], {
+      base: 'node_modules/twemoji/2/',
+      ext: '.svg',
+      size: 'svg',
       callback: (icon, options) => [
          'a9',   // © copyright
          'ae',   // ® registered trademark
