@@ -174,7 +174,9 @@ $(() => {
                $this.attr('src', $this.data('src'));
             });
             emojify($preview);
-            $.scrollTo($this.data('scrolltop'), {
+            if(
+               typeof $this.data('scrolltop') !== 'undefined'
+            ) $.scrollTo($this.data('scrolltop'), {
                duration: msDelay,
                axis: 'y'
             });
