@@ -1,6 +1,6 @@
 body { padding-top: 70px; }
 
-.imageUUE IMG { max-width: 100%; }
+.previewArea IMG, .previewArea VIDEO, .previewArea AUDIO { max-width: 100%; }
 blockquote.fidoQuote, blockquote.fidoQuoteOuter {
    margin-bottom: 0; font-size: inherit;
 }
